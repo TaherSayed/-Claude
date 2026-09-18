@@ -2,6 +2,10 @@ import { Language } from './types';
 
 const strings = {
   ar: {
+    live: 'مباشر',
+    timer: 'مؤقّت 3 ث',
+    reviewTitle: 'الصورة تمام؟',
+    usePhoto: 'استخدم الصورة',
     appName: 'Barber AI Stylist',
     tagline: 'بص للكاميرا... واحنا نقولك أحسن قصة تناسبك',
     start: 'ابدأ التحليل',
@@ -46,6 +50,10 @@ const strings = {
     dir: 'rtl' as 'rtl' | 'ltr',
   },
   de: {
+    live: 'LIVE',
+    timer: '3-Sek-Timer',
+    reviewTitle: 'Foto in Ordnung?',
+    usePhoto: 'Foto verwenden',
     appName: 'Barber AI Stylist',
     tagline: 'In die Kamera schauen – wir finden den passenden Haarschnitt',
     start: 'Analyse starten',
@@ -90,6 +98,10 @@ const strings = {
     dir: 'ltr' as 'rtl' | 'ltr',
   },
   en: {
+    live: 'LIVE',
+    timer: '3s timer',
+    reviewTitle: 'Photo OK?',
+    usePhoto: 'Use photo',
     appName: 'Barber AI Stylist',
     tagline: 'Look at the camera and we will find the haircut that suits you',
     start: 'Start analysis',
