@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "Barber AI Stylist",
+    "slug": "barber-ai-stylist",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#14110F"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "de.hbsit.barberaistylist",
+      "infoPlist": {
+        "NSCameraUsageDescription": "The app uses the camera to analyse the customer's hair and face shape and suggest suitable haircuts."
+      }
+    },
+    "android": {
+      "package": "de.hbsit.barberaistylist",
+      "permissions": ["android.permission.CAMERA"],
+      "adaptiveIcon": {
+        "backgroundColor": "#14110F",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to use the camera to analyse hair and suggest haircuts."
+        }
+      ],
+      "expo-secure-store"
+    ]
+  }
+}
