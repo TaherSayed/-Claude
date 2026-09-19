@@ -38,6 +38,31 @@ eas build --platform android --profile preview   # ملف APK يتسطب مبا�
 eas build --platform ios                          # يحتاج حساب Apple Developer
 ```
 
+## 🌐 النشر على VPS (نسخة الويب) / Deploy on a VPS
+
+نسخة الويب بتشتغل على الآيباد والأندرويد من المتصفح مباشرة بدون متجر. **الكاميرا مش هتفتح إلا على https://**.
+
+```bash
+# على السيرفر (يحتاج Docker):
+curl -fsSL https://raw.githubusercontent.com/TaherSayed/-Claude/main/deploy/deploy.sh | bash
+```
+
+ده بيعمل clone في `/opt/barber-ai-stylist`، يبني الصورة، ويشغّل الحاوية على البورت `8088` (غيّره في `docker-compose.yml` لو متعارض مع TimeOs).
+
+بعدها فعّل HTTPS بدومين فرعي:
+- **Caddy** (أسهل): `deploy/Caddyfile.example`
+- **nginx + certbot** لو السيرفر عليه nginx أصلاً: `deploy/nginx-proxy.example.conf`
+
+### نشر تلقائي مع كل push
+الـ workflow في `.github/workflows/deploy.yml` بيعمل SSH على السيرفر ويشغّل `deploy/deploy.sh`. ضيف في GitHub → Settings → Secrets:
+
+| Secret | القيمة |
+|---|---|
+| `VPS_HOST` | IP أو دومين السيرفر |
+| `VPS_USER` | يوزر SSH (لازم يكون في مجموعة docker) |
+| `VPS_SSH_KEY` | المفتاح الخاص (private key) |
+| `VPS_PORT` | اختياري، الافتراضي 22 |
+
 ## 🧠 كيف يشتغل / How it works
 
 1. `expo-camera` يصوّر الزبون (الكاميرا الأمامية افتراضيًا، مع دايرة إرشاد).

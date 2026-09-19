@@ -1,0 +1,9 @@
+services:
+  barber-ai:
+    build: .
+    image: barber-ai-stylist:latest
+    container_name: barber-ai
+    restart: unless-stopped
+    ports:
+      # Host port -> container. Change 8088 if it clashes with TimeOs.
+      - "8088:80"

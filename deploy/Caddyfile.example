@@ -1,0 +1,11 @@
+# Example reverse proxy with automatic Let's Encrypt HTTPS.
+# The browser camera (getUserMedia) is blocked on plain http://, so HTTPS is required.
+#
+# 1. Point a DNS A record, e.g. barber.example.de -> VPS IP
+# 2. apt install caddy   (or run the caddy Docker image)
+# 3. Replace the domain below, copy to /etc/caddy/Caddyfile, then: systemctl reload caddy
+
+barber.example.de {
+    reverse_proxy 127.0.0.1:8088
+    encode gzip
+}
